@@ -1,0 +1,32 @@
+/* Universal border-box fix */
+:root {
+    box-sizing: border-box;
+}
+
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+
+body {
+    color: #262626;
+}
+
+header {
+    display: flex;
+}
+
+.header__area {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.header__area--big {
+    font-size: 18px;
+}
+
+.header__compass {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+}

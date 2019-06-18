@@ -15,7 +15,7 @@
     <link rel="manifest" href="./asserts/site.webmanifest">
     <link rel="mask-icon" href="./asserts/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#fff">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
@@ -26,18 +26,20 @@
 <body>
 <header>
     <div></div>
-    <div>
-        <h2><a href="."><img src="./img/heritagego_logo_128x73.png" alt="Héritage GO Logo"></a></h2>
+    <div class="header__center">
+        <div><a href="."><img class="header__logo" src="./img/heritagego_logo_128x73.png" alt="Héritage GO Logo"></a>
+        </div>
         <div class="header__area">
-            <p class="header__area--big">Ho Chi Minh City</p>
-            <p>Vietnam</p>
+            <div class="header__name">
+                <p>Ho Chi Minh City</p>
+                <p>Vietnam</p>
+            </div>
             <div class="header__compass"><i class="far fa-compass"></i></div>
         </div>
-        <div>
-            <button class="header__login header__area">Login</button>
-        </div>
     </div>
-    <div></div>
+    <div class="header__right">
+        <button type="submit">Login</button>
+    </div>
 </header>
 
 <main>

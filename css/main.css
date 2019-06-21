@@ -1,9 +1,11 @@
 /* Universal border-box fix */
 :root {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 *, ::before, ::after {
+    -webkit-box-sizing: inherit;
     box-sizing: inherit;
 }
 
@@ -19,27 +21,61 @@ body {
 header {
     font-family: Arial, sans-serif;
     font-size: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+    -webkit-box-align: center;
+    -ms-flex-align: center;
 }
 
 header > div {
+    -ms-flex: 1 1 0;
     flex: 1 1 0;
+    -webkit-box-flex: 1;
 }
 
 .header__center {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
+    -ms-flex: 0 0 600px;
     flex: 0 0 600px;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-flex: 0;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
 }
 
 .header__logo {
     margin: 6px 0;
+    -o-transition-timing-function: ease-out;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -o-transition-duration: 100ms;
+    -webkit-transition-duration: 100ms;
+    transition-duration: 100ms;
+}
+
+.header__logo:hover {
+    -o-transition-duration: 100ms;
+    -webkit-transition-duration: 100ms;
+    transition-duration: 100ms;
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -ms-transform-origin: center;
+    -webkit-transform-origin: center;
+    transform-origin: center;
 }
 
 .header__area {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     align-items: first baseline;
     text-align: center;
@@ -56,9 +92,13 @@ header > div {
 }
 
 .header__right {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     justify-content: flex-end;
     margin: 24px;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
 }
 
 main {

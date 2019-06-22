@@ -1,23 +1,10 @@
-/* Universal border-box fix */
-:root {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-*, ::before, ::after {
-    -webkit-box-sizing: inherit;
-    box-sizing: inherit;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body {
+    width: 100%;
     color: #262626;
 }
 
+/*--------------------------------------------------*/
+/* Header */
 header {
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -27,7 +14,7 @@ header {
     align-items: center;
     width: 100%;
     height: 80px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+    border-bottom: 1px solid rgba(0, 0, 0, .0975);
     -webkit-box-align: center;
     -ms-flex-align: center;
 }
@@ -43,8 +30,7 @@ header > div {
     display: -ms-flexbox;
     display: flex;
     align-items: center;
-    -ms-flex: 0 0 600px;
-    flex: 0 0 600px;
+    flex-basis: 600px;
     justify-content: space-between;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -54,7 +40,7 @@ header > div {
 }
 
 .header__logo {
-    margin: 6px 0;
+    margin-left: 24px;
     -o-transition-timing-function: ease-out;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
@@ -79,8 +65,25 @@ header > div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    align-items: first baseline;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    margin: 24px;
     text-align: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+}
+
+.header__name p {
+    font-weight: 700;
+    line-height: 24px;
+    align-self: flex-start;
+    -ms-flex: 1;
+    flex: 1;
+    margin: 0;
+    white-space: nowrap;
+    -webkit-box-flex: 1;
 }
 
 .header__name > :first-child {
@@ -89,10 +92,16 @@ header > div {
 
 .header__compass {
     font-size: 24px;
-    margin: 6px;
-    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 6px;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
 }
 
+/* Spin compass */
 .header__compass i {
     -webkit-animation: spin 2s infinite linear;
     animation: spin 2s infinite linear;
@@ -120,7 +129,6 @@ header > div {
     }
 }
 
-
 .header__right {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -131,6 +139,74 @@ header > div {
     -ms-flex-pack: end;
 }
 
+.header__right > button {
+    margin: 24px;
+    white-space: nowrap;
+}
+
+/*--------------------------------------------------*/
+/* Main */
 main {
     background-color: #fafafa;
+}
+
+/*--------------------------------------------------*/
+/* Login Modal */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-control-placeholder {
+    position: absolute;
+    top: 7px;
+    -o-transition: all 200ms;
+    -webkit-transition: all 200ms;
+    transition: all 200ms;
+    opacity: 0.5;
+}
+
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+    font-size: 75%;
+    z-index: 50;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    opacity: 1;
+    color: #007bff;
+}
+
+.form-group > :first-child {
+    position: relative;
+}
+
+.form-group button {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 0;
+}
+
+input:focus,
+.form-group button:focus,
+.form-control:invalid {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.form-group .line {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    -o-transition: .3s width ease-in-out;
+    -webkit-transition: .3s width ease-in-out;
+    transition: .3s width ease-in-out;
+}
+
+.form-group input:focus + label + .line {
+    width: 100%;
+    background-color: #007bff;
 }

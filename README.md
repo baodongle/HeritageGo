@@ -341,7 +341,7 @@ In the next waypoints, we will need to fetch photograph data from both **Hérita
 
 We provide the JavaScript file `heritagego-service.1.0.0.js` located in the folder `js` that will handle the communication with these 2 RESTful API servers for you.
 
-:page_facing_up: [JS File](js/heritagego-service.1.0.0)
+:page_facing_up: [JS File](js/heritagego-service.1.0.0.js)
 
 This script relies on a fast, small, and feature-rich JavaScript library: **jQuery**. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.
 
@@ -452,7 +452,7 @@ Create a modal component with the following layout:
 
 The password edit field MUST obscure the text entered so that it cannot be read, usually by replacing each character with a symbol such as the asterisk ("*") or a dot ("•").
 
-The email address and the password edit fields MUST contain hints that describe the expected value, respectively "Email address" and "Password.
+The email address and the password edit fields MUST contain hints that describe the expected value, respectively "Email address" and "Password".
 
 **Label**: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
 

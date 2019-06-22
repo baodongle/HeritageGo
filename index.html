@@ -8,26 +8,32 @@
     <title>Héritage GO</title>
     <meta name="description" content="Héritage GO is the community for heritage lovers.">
 
-    <!-- Favicon -->
+    <!--Favicon-->
     <link rel="apple-touch-icon" sizes="180x180" href="./asserts/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./asserts/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./asserts/favicon-16x16.png">
     <link rel="manifest" href="./asserts/site.webmanifest">
     <link rel="mask-icon" href="./asserts/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#fff">
+    <meta name="theme-color" content="#ffffff">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css"
+          integrity="sha384-h7v7it1kAxAmspqXfYqmlWr/1mGypjnm4HFceYYmmnV+n18pA6hdfytpnRW46FHC" crossorigin="anonymous">
 
-    <!-- Custom CSS -->
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--Custom CSS-->
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <header>
     <div></div>
     <div class="header__center">
-        <div><a href="."><img class="header__logo" src="./img/heritagego_logo_128x73.png" alt="Héritage GO Logo"></a>
+        <div>
+            <a href="."><img class="header__logo" src="./img/heritagego_logo_128x73.png" alt="Héritage GO Logo"></a>
         </div>
         <div class="header__area">
             <div class="header__name">
@@ -38,12 +44,65 @@
         </div>
     </div>
     <div class="header__right">
-        <button type="submit">Login</button>
+        <button type="submit" class="btn btn-outline-dark" data-toggle="modal" data-target="#modalLoginForm">Log In
+        </button>
     </div>
 </header>
 
 <main>
 
 </main>
+<!--Login Modal-->
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title font-weight-bold" id="modalLoginLabel">Log in</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="input-group border-bottom border-primary">
+                        <input id="defaultForm-email" type="text" class="form-control px-0 border-0" required autofocus>
+                        <label class="form-control-placeholder" for="defaultForm-email">Email address</label>
+                        <div class="line"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group border-bottom border-primary">
+                        <button class="btn border-0" type="button">
+                            <i class="toggle-password fas fa-lock"></i>
+                        </button>
+                        <input class="form-control px-0 border-0" id="defaultForm-pass" type="password" required>
+                        <label class="form-control-placeholder" for="defaultForm-pass">Password</label>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-block">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--jQuery-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
+        crossorigin="anonymous"></script>
+<!--Héritage GO RESTful API JavaScript Library-->
+<script src="./js/heritagego-service.1.0.0.js"></script>
+<!--Popper.js & Bootstrap JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<!--Main JS-->
+<script src="./js/main.js"></script>
 </body>
 </html>

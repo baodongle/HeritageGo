@@ -1,0 +1,23 @@
+{
+  "name": "heritage_go",
+  "version": "1.0.0",
+  "dependencies": {
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "eslint": "^6.0.1"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
+  "eslint": {
+    "extends": [
+      "eslint:recommended",
+      "eslint-plugin-jquery"
+    ]
+  },
+  "standard": {
+    "globals": [
+      "$"
+    ]
+  }
+}

@@ -8,7 +8,7 @@
     <title>Héritage GO</title>
     <meta name="description" content="Héritage GO is the community for heritage lovers.">
 
-    <!--Favicon-->
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="./asserts/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./asserts/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./asserts/favicon-16x16.png">
@@ -17,19 +17,19 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <!--Font Awesome-->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css"
           integrity="sha384-h7v7it1kAxAmspqXfYqmlWr/1mGypjnm4HFceYYmmnV+n18pA6hdfytpnRW46FHC" crossorigin="anonymous">
 
-    <!--Bootstrap CSS-->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!--Custom CSS-->
-    <link rel="stylesheet" href="css/main.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-<header>
+<header class="sticky-top">
     <div></div>
     <div class="header__center">
         <div>
@@ -49,10 +49,62 @@
     </div>
 </header>
 
-<main>
+<main class="w-100">
+    <!-- Photograph feed -->
+    <div class="card post">
+        <div class="card-header post__header">
+            <img src="./img/avatar-placeholder.png" alt="User avatar" class="post__avatar">
+            <div class="post__detail">
+                <div class="d-flex font-weight-bold">
+                    <div class="post__caption">The main entrance to Le Van Duyet mausoleum - Sai Gon - 1965</div>
+                    <div class="dropdown">
+                        <img src="./img/ic_translate_24px.svg" class="post__ic-translate mx-3" alt="">
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="mr-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sai Gon, Viet Nam</span>
+                    </div>
+                    <div class="post__date">
+                        <i class="far fa-clock"></i>
+                        <span>1965</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="card-body p-0">
+            <img src="./img/img-placeholder.jpg" alt="Post photo" class="w-100">
+            <div class="post__event d-flex">
+                <button class="border-0 bg-transparent post__action">
+                    <i class="fas fa-heart"></i><span>0</span>
+                </button>
+                <button class="border-0 bg-transparent post__action">
+                    <i class="fas fa-comment"></i><span>0</span>
+                </button>
+                <button class="border-0 bg-transparent post__action">
+                    <i class="fas fa-camera"></i><span>0</span>
+                </button>
+                <button class="border-0 bg-transparent post__action ml-auto">
+                    <i class="fas fa-bookmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <form class="form-group mb-1 post__comment">
+                <div class="input-group border">
+                    <input class="form-control px-0 border-0 bg-transparent" aria-label="Write a comment"
+                           placeholder="Write a comment" autocomplete="off">
+                    <button class="fas fa-paper-plane border-0 bg-transparent"></button>
+                </div>
+            </form>
+        </div>
+    </div>
 </main>
-<!--Login Modal-->
+
+<!-- Login Modal -->
 <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -63,6 +115,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body">
                 <div class="form-group">
                     <div class="input-group border-bottom border-primary">
@@ -73,36 +126,35 @@
                 </div>
                 <div class="form-group">
                     <div class="input-group border-bottom border-primary">
-                        <button class="btn border-0" type="button">
-                            <i class="toggle-password fas fa-lock"></i>
-                        </button>
+                        <button class="fas fa-lock order-1 border-0 bg-transparent toggle-password"></button>
                         <input class="form-control px-0 border-0" id="defaultForm-pass" type="password" required>
                         <label class="form-control-placeholder" for="defaultForm-pass">Password</label>
                         <div class="line"></div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
+
+            <div class="modal-footer border-top-0">
                 <button type="button" class="btn btn-primary btn-block">Login</button>
             </div>
         </div>
     </div>
 </div>
 
-<!--jQuery-->
+<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
         crossorigin="anonymous"></script>
-<!--Héritage GO RESTful API JavaScript Library-->
+<!-- Héritage GO RESTful API JavaScript Library -->
 <script src="./js/heritagego-service.1.0.0.js"></script>
-<!--Popper.js & Bootstrap JS-->
+<!-- Popper.js & Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<!--Main JS-->
+<!-- Main JS -->
 <script src="./js/main.js"></script>
 </body>
 </html>

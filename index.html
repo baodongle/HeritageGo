@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Héritage GO</title>
     <meta name="description" content="Héritage GO is the community for heritage lovers.">
@@ -51,12 +51,12 @@
 
 <main class="w-100">
     <!-- Photograph feed -->
-    <div class="card post">
-        <div class="card-header post__header">
-            <img src="./img/avatar-placeholder.png" alt="User avatar" class="post__avatar">
+    <div id="defaultPost" class="card post" hidden>
+        <div class="card-header d-flex align-items-center">
+            <img src="./img/avatar-placeholder.png" alt="User avatar" class="mr-3 post__avatar">
             <div class="post__detail">
                 <div class="d-flex font-weight-bold">
-                    <div class="post__caption">The main entrance to Le Van Duyet mausoleum - Sai Gon - 1965</div>
+                    <div class="post__caption"></div>
                     <div class="dropdown">
                         <img src="./img/ic_translate_24px.svg" class="post__ic-translate mx-3" alt="">
                     </div>
@@ -64,27 +64,27 @@
                 <div class="d-flex">
                     <div class="mr-4">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Sai Gon, Viet Nam</span>
+                        <span class="post__area-name"></span>
                     </div>
                     <div class="post__date">
                         <i class="far fa-clock"></i>
-                        <span>1965</span>
+                        <span></span>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="card-body p-0">
-            <img src="./img/img-placeholder.jpg" alt="Post photo" class="w-100">
+            <img src="./img/img-placeholder.jpg" alt="Post photo" class="w-100 post__photo">
             <div class="post__event d-flex">
                 <button class="border-0 bg-transparent post__action">
-                    <i class="fas fa-heart"></i><span>0</span>
+                    <i class="fas fa-heart"></i><span class="ml-1 post__like-count">0</span>
                 </button>
                 <button class="border-0 bg-transparent post__action">
-                    <i class="fas fa-comment"></i><span>0</span>
+                    <i class="fas fa-comment"></i><span class="ml-1 post__comment-count">0</span>
                 </button>
                 <button class="border-0 bg-transparent post__action">
-                    <i class="fas fa-camera"></i><span>0</span>
+                    <i class="fas fa-camera"></i><span class="ml-1 post__view-count">0</span>
                 </button>
                 <button class="border-0 bg-transparent post__action ml-auto">
                     <i class="fas fa-bookmark"></i>
@@ -97,7 +97,7 @@
                 <div class="input-group border">
                     <input class="form-control px-0 border-0 bg-transparent" aria-label="Write a comment"
                            placeholder="Write a comment" autocomplete="off">
-                    <button class="fas fa-paper-plane border-0 bg-transparent"></button>
+                    <button class="fas fa-paper-plane border-0 bg-transparent" type="button"></button>
                 </div>
             </form>
         </div>
@@ -109,34 +109,36 @@
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title font-weight-bold" id="modalLoginLabel">Log in</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title font-weight-bold" id="modalLoginLabel">Log in</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-            <div class="modal-body">
-                <div class="form-group">
-                    <div class="input-group border-bottom border-primary">
-                        <input id="defaultForm-email" type="text" class="form-control px-0 border-0" required autofocus>
-                        <label class="form-control-placeholder" for="defaultForm-email">Email address</label>
-                        <div class="line"></div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group border-bottom border-primary">
+                            <input id="defaultForm-email" type="text" class="form-control px-0 border-0" required>
+                            <label class="form-control-placeholder" for="defaultForm-email">Email address</label>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group border-bottom border-primary">
+                            <input class="form-control px-0 border-0" id="defaultForm-pass" type="password" required>
+                            <label class="form-control-placeholder" for="defaultForm-pass">Password</label>
+                            <div class="line"></div>
+                            <button type="button" class="fas fa-lock border-0 bg-transparent toggle-password"></button>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="input-group border-bottom border-primary">
-                        <button class="fas fa-lock order-1 border-0 bg-transparent toggle-password"></button>
-                        <input class="form-control px-0 border-0" id="defaultForm-pass" type="password" required>
-                        <label class="form-control-placeholder" for="defaultForm-pass">Password</label>
-                        <div class="line"></div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="modal-footer border-top-0">
-                <button type="button" class="btn btn-primary btn-block">Login</button>
-            </div>
+                <div class="modal-footer border-top-0">
+                    <button class="btn btn-primary btn-block">Login</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -154,6 +156,18 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+<!-- Toggle Password Visibility -->
+<script>
+  $('.toggle-password').click(function () {
+    let input = $('#defaultForm-pass')
+    $(this).toggleClass('fa-lock fa-unlock-alt')
+    if (input.attr('type') === 'password') {
+      input.attr('type', 'text')
+    } else {
+      input.attr('type', 'password')
+    }
+  })
+</script>
 <!-- Main JS -->
 <script src="./js/main.js"></script>
 </body>

@@ -13,7 +13,15 @@
     "extends": [
       "eslint:recommended",
       "eslint-plugin-jquery"
-    ]
+    ],
+    "rules": {
+      "no-param-reassign": [
+        2,
+        {
+          "props": false
+        }
+      ]
+    }
   },
   "standard": {
     "globals": [

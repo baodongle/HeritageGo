@@ -1,10 +1,5 @@
 body {
-  width: 100%;
   color: #262626;
-}
-
-a {
-  text-decoration: none !important;
 }
 
 /* Header */
@@ -114,23 +109,19 @@ header > div {
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
   }
 
   to {
     -webkit-transform: rotate(1turn);
-    transform: rotate(1turn);
   }
 }
 
 @keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   to {
-    -webkit-transform: rotate(1turn);
     transform: rotate(1turn);
   }
 }
@@ -152,16 +143,12 @@ header > div {
 /* -------------------------------------------------- */
 
 /* Login Modal */
-#modalLoginForm a {
-  color: #000;
-}
-
 .form-control-placeholder {
   position: absolute;
   top: 7px;
-  -o-transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
   opacity: 0.5;
 }
 
@@ -169,9 +156,9 @@ header > div {
 .form-control:valid + .form-control-placeholder {
   font-size: 90%;
   z-index: 50;
-  -ms-transform: translateY(-100%);
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
+  -ms-transform: translateY(-90%);
+  -webkit-transform: translateY(-90%);
+  transform: translateY(-90%);
   opacity: 1;
   color: #007bff;
 }
@@ -194,17 +181,22 @@ input:focus,
   -o-transition: 0.3s width ease-in-out;
   -webkit-transition: 0.3s width ease-in-out;
   transition: 0.3s width ease-in-out;
+  background-color: #007bff;
 }
 
 .form-group input:focus + label + .line {
   width: 100%;
-  background-color: #007bff;
+}
+
+.form-group input:not(:focus) + label + .line {
+  width: 0;
 }
 
 /* -------------------------------------------------- */
 
 /* Main */
 main {
+  padding-top: 20px;
   background-color: #fafafa;
 }
 
@@ -214,77 +206,58 @@ main {
   margin: 0 auto 20px;
 }
 
-.post__header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-}
-
 .post__avatar {
   width: 48px;
   height: 48px;
-  margin-right: 1rem;
-  vertical-align: center;
 }
 
 .post__ic-translate {
   -webkit-animation: shake 0.3s infinite linear;
   animation: shake 0.3s infinite linear;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
 }
 
 @-webkit-keyframes shake {
   0% {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
   }
 
   25% {
     -webkit-transform: rotate(20deg);
-    transform: rotate(20deg);
   }
 
   50% {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
   }
 
   75% {
     -webkit-transform: rotate(-20deg);
-    transform: rotate(-20deg);
   }
 
   100% {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
   }
 }
 
 @keyframes shake {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   25% {
-    -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
   }
 
   50% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   75% {
-    -webkit-transform: rotate(-20deg);
     transform: rotate(-20deg);
   }
 
   100% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 }
@@ -297,10 +270,6 @@ main {
 .post__action {
   margin-left: 1rem;
   padding: 0 0.75rem;
-}
-
-.post__event i + span {
-  margin-left: 6px;
 }
 
 .post__comment > div {

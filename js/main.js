@@ -6,6 +6,9 @@ function renderPhoto (image, photoPost, mainContent) {
   mHeritageGoService
     .getPhoto(image)
     .then(photo => {
+      let lang = $('#defaultLang').clone()
+      let languages = navigator.languages
+      let i
       photoPost
         .find('.post__avatar')
         .attr('src', `http:${photo.account.picture_url}`)
@@ -26,11 +29,62 @@ function renderPhoto (image, photoPost, mainContent) {
       photoPost.find('.post__comment-count').html(photo.comment_count)
       photoPost.find('.post__view-count').html(photo.view_count)
 
+      // set and add new language to dropdown list
+      lang.removeAttr('id')
+      for (i = 0; i < languages.length; i++) {
+        if (languages[i].length === 2) {
+          lang.text(ISO_639_ALPHA2_CODE_TO_ISO_639_ALPHA3_CODE_MAPPING[languages[i]])
+          lang.toggleClass('d-none d-block')
+          photoPost.find('.dropdown-menu').append(lang[0].outerHTML)
+        }
+      }
+
+      photoPost.find('.dropdown-item').click(function () {
+        $('.post__detail').find('.show').each(function () {
+          $(this).removeClass('show')
+        })
+        if (photoPost.find('.language').hasClass('.d-none')) {
+          changeInterface(photoPost)
+        }
+        photoPost.find('language').html($(this).html())
+      })
+      // catch event enter to post data to server by api
+      photoPost.find('.caption').keypress(function (event) {
+        let caption
+        let locale
+        let photoId = photo.photo_id
+        let keycode = event.keyCode ? event.keyCode : event.which
+        if (keycode === '13') {
+          caption = photoPost.find('.caption').val()
+          locale = photoPost.find('.language').html()
+          photoPost.find('.language').html('')
+          changeInterface(photoPost)
+          mHeritageGoService.suggestPhotoCaption(photoId, caption, locale).catch(error => {
+            console.log(error)
+          })
+        }
+      })
+
+      $(photoPost.find('.post__ic-translate')).click(function () {
+        if ($(this).css('animation-play-state') === 'running') {
+          $(this).css('animation-play-state', 'paused')
+        } else {
+          $(this).css('animation-play-state', 'running')
+        }
+      })
+
       photoPost.hide().appendTo(mainContent).fadeIn()
     })
     .catch(error => {
       console.log(error)
     })
+}
+
+function changeInterface (post) {
+  post.find('.post__ic-translate').toggleClass('d-none d-block')
+  post.find('.post__caption').toggleClass('d-none')
+  post.find('.caption').toggleClass('d-none d-block')
+  post.find('.language').toggleClass('d-none d-block')
 }
 
 function renderPhotos (ignored) {
@@ -55,10 +109,28 @@ function renderPhotos (ignored) {
     })
 }
 
+$(document).click(function (event) {
+  let list = $($(this).find('.post'))
+  let target = $(event.target).parents()
+  let i
+  for (i = 0; i < list.length; i++) {
+    if ($(list[i]).find('.post__ic-translate').css('animation-play-state') === 'paused') {
+      $('.post__ic-translate').css('animation-play-state', 'running')
+    }
+    if ($(target[target.length - 2]).is(list[i]) && $(list[i]).find('.language').hasClass('d-none')) {
+      changeInterface($(list[i]))
+    }
+  }
+})
+
 $(function () {
   let ignored = 3
-  const clonedMain = $('main').clone()
-  clonedMain.css('padding-top', $('header').height() + 20)
+  const main = $('main')
+  const clonedMain = main.clone()
+  let paddingTopMain = Number.parseInt(main.css('padding-top'))
+  let list
+  let i
+  clonedMain.css('padding-top', $('header').height() + paddingTopMain + 50)
   $('.blur-background').append(clonedMain)
   renderPhotos(ignored)
   isLoading = false
@@ -72,6 +144,18 @@ $(function () {
         isLoading = true
         ignored += 2
         renderPhotos(ignored)
+      }
+    }
+
+    $('.post__ic-translate').css('animation-play-state', 'running')
+    $('.post__detail').find('.show').each(function () {
+      $(this).removeClass('show')
+    })
+    list = $($(document).find('.post'))
+    for (i = 0; i < list.length; i++) {
+      if ($(list[i]).find('.language').hasClass('d-block')) {
+        changeInterface($(list[i]))
+        break
       }
     }
   })

@@ -1,5 +1,7 @@
 # Héritage GO
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/baodongle/HeritageGo.svg)](https://greenkeeper.io/)
+
 ### Core
 
 
